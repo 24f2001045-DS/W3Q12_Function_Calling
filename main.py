@@ -13,6 +13,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+@app.get("/")
+def root():
+    return {"message": "Service is running"}
 
 @app.get("/execute")
 def execute(q: str = Query(...)):
